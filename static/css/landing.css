@@ -1,0 +1,33 @@
+.img-carrusel{
+    height:50vh; 
+    width: 98%; 
+    margin-left: 1%; 
+    margin-top: 1%;
+}
+
+#contenidoPrincipal{
+    padding-left: 1%;
+    padding-top: 1%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width:98%;
+    margin-left: 1%;
+    background-color: whitesmoke;
+}
+
+#botonLogin{
+    color: whitesmoke;
+}
+
+#botonLogin:hover{
+    color:black;
+}
+
+#divLogin{
+    background-color: rgb(13, 202, 240);
+}
+
+#divLogin:hover{
+    background-color: white;
+    border-radius: 5px;
+}

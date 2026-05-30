@@ -1,0 +1,17 @@
+#imagen-contacto{
+    height: 40vh;
+    width: 98%;
+    border-radius: 15px;
+    background-image: url('../IMG/contact.png');
+    margin-left: 1%;
+    margin-top: 5vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#tarjeta{
+    margin-top: 2vh;
+    width: 98%;
+    margin-left: 1%;
+}

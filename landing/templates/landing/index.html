@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %} Bienvenida {% endblock %}
+
+{% block content %} 
+ {% load static %}
+<!-- Carrusel de imagenes-->
+<div id="carouselWithControls" class="carousel slide pointer-event" data-bs-ride="carousel" bis_skin_checked="1">
+  <div class="carousel-inner" bis_skin_checked="1">
+      <div class="carousel-item active img-carrusel">
+          <img src="{% static 'IMG/imagen1.jpg' %}"
+              class="d-block w-100 h-100"
+              style="object-fit:cover;"
+              alt="Slide 1">
+      </div>
+      <div class="carousel-item img-carrusel"">
+          <img src="{% static 'IMG/imagen2.jpg' %}"
+              class="d-block w-100 h-100"
+              style="object-fit:cover;"
+              alt="Slide 1">
+      </div>
+      <div class="carousel-item img-carrusel">
+          <img src="{% static 'IMG/imagen3.jpg' %}"
+              class="d-block w-100 h-100"
+              style="object-fit:cover;"
+              alt="Slide 1">
+      </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselWithControls" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselWithControls" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
+
+  <div id="contenidoPrincipal">
+      <p> 
+          Bienvenido a Lavandería Flores, 
+          más de 12 años brindando servicios de lavado y cuidado textil con calidad, 
+          rapidez y confianza. Nos especializamos en el lavado de ropa diaria, 
+          edredones, cortinas, uniformes y prendas delicadas, utilizando productos 
+          que ayudan a mantener los colores y la suavidad de cada tela. 
+          Nuestro compromiso es ofrecerte una experiencia cómoda y segura para que 
+          siempre tengás tu ropa limpia, fresca y lista para usar. </br></br>
+
+          En Lavandería Flores contamos con servicio de lavado por libra, 
+          planchado profesional y entregas a domicilio en distintas zonas de la ciudad. 
+          Gracias a nuestro equipo y maquinaria moderna, 
+          garantizamos tiempos de entrega rápidos sin descuidar el cuidado de tus prendas. 
+          Ya sea para el hogar, oficinas o negocios, estamos preparados para ayudarte 
+          con soluciones prácticas y accesibles para el cuidado de tu ropa. </br></br>
+
+          Además, entendemos la importancia de tu tiempo, por eso ofrecemos atención 
+          personalizada y procesos eficientes que nos permiten cumplir con entregas 
+          puntuales y resultados de alta calidad. Nuestro personal está capacitado 
+          para tratar cada prenda con el cuidado que merece, asegurando limpieza profunda 
+          y excelente presentación en cada servicio realizado. </br></br>
+
+          Con el paso de los años, Lavandería Flores se ha convertido en una opción de 
+          confianza para familias, estudiantes y pequeños negocios que buscan un servicio 
+          responsable y accesible. Seguimos trabajando cada día para mejorar nuestra atención, 
+          incorporar nuevas tecnologías de lavado y mantener el compromiso que nos ha 
+          caracterizado desde nuestros inicios.
+      </p>
+  </div>
+{% endblock %}

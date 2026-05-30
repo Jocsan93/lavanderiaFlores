@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css_extra %} <link rel="stylesheet" href="{% static 'css/aboutUs.css'%}"> {% endblock %}
+{% block title %} Sobre Nosotros {% endblock %}
+
+{% block content %} 
+
+ <div class="container py-5" id="contenidoAboutUs" style="background-color: whitesmoke;">
+
+    <div class="text-center mb-5">
+        <h2 class="text-info">Sobre Lavandería Flores</h2>
+        <p class="text-muted">
+            Conoce más sobre quiénes somos, nuestra misión, visión y trayectoria.
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <!-- Historia -->
+        <div class="col-md-6">
+            <div class="card border-info h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-info">Nuestra Historia</h5>
+                    <p class="card-text">
+                        Lavandería Flores inició operaciones hace más de 12 años como un pequeño negocio familiar.
+                        Con el tiempo, gracias a la confianza de nuestros clientes, nos hemos consolidado como una
+                        de las opciones más confiables en servicios de lavandería, manteniendo siempre la calidad y el cuidado de cada prenda.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Misión -->
+        <div class="col-md-6">
+            <div class="card border-info h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-info">Misión</h5>
+                    <p class="card-text">
+                        Brindar servicios de lavandería de alta calidad, garantizando limpieza, cuidado y puntualidad,
+                        utilizando procesos eficientes y productos adecuados que preserven la vida útil de las prendas
+                        de nuestros clientes.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visión -->
+        <div class="col-md-6">
+            <div class="card border-info h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-info">Visión</h5>
+                    <p class="card-text">
+                        Ser la lavandería líder en la región, reconocida por su excelencia en el servicio,
+                        innovación en procesos de limpieza y compromiso con la satisfacción total del cliente.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Valores -->
+        <div class="col-md-6">
+            <div class="card border-info h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-info">Nuestros Valores</h5>
+                    <p class="card-text">
+                        Compromiso, responsabilidad, honestidad y atención al detalle son los pilares que nos guían.
+                        Cada prenda es tratada con el máximo cuidado como si fuera propia, asegurando confianza y calidad en cada servicio.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!--Relleno-->
+        <div class="col-md-12">
+            <div class="card border-info h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-info">Lorem Ipsum</h5>
+                    <p class="card-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Sed a dapibus diam. Curabitur at lacus laoreet, eleifend est malesuada, 
+                        imperdiet nisl. Duis magna mi, egestas quis neque sit amet, luctus vehicula tortor. 
+                        Aliquam ac velit quam. Praesent ullamcorper condimentum lacus, a dictum enim porta id. 
+                        Proin quis rutrum augue, at accumsan dui. Phasellus consectetur hendrerit enim vel scelerisque.
+                    </br>
+                    </br>
+                        Etiam neque odio, laoreet eget pretium ullamcorper, varius id turpis. 
+                        Etiam commodo in erat a ultrices. Nam viverra elit sed facilisis elementum. 
+                        Pellentesque elementum arcu nulla, at aliquam diam cursus eget. 
+                        Phasellus accumsan ac elit at efficitur. Donec sapien felis, iaculis sit.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
