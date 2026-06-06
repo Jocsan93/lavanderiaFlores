@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #87CEEB, #001f3f);
+}
+
+#divFormulario{
+    height: 80vh;
+    width: 60vh;
+    margin-left: 67.5vh;
+    margin-top: 3vh;
+    background-color: white;
+    border-radius: 15px;
+}
+
+#titulo{
+    margin-top: 10px;
+    margin-left: 8px;
+}
+
+#instrucciones{
+    margin-top: 20px;
+    margin-left: 8px;
+}
+
+label{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5%;
+    font-weight: bolder;
+}
+
+input{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5%;
+    width: 90%;
+    height: 5vh;
+}
+
+#submitBoton{
+    margin-top: 10px;
+    width: 50%;
+    margin-left: 25%;
+    background-color: #87CEEB;
+    color: white;
+    border-color: white;
+    height: 6vh;
+
+    transition: all 0.4s ease;
+}
+
+#submitBoton:hover{
+    width: 52%;
+    background-color: white;
+    color: #87CEEB;
+    border-color:#87CEEB;
+    height: 8vh;
+}
+
+#logo{
+    margin-top: 2%;
+    margin-left: 1%;
+    width: 98%;
+    height: 25vh;
+}
+
+#parrafoRegistro{
+    margin-left: 50%;
+}
