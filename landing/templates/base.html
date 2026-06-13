@@ -25,12 +25,19 @@
           <a class="nav-link" href="{% url 'contact'%}">Contactanos</a>
         </li>
       </ul>
-
+{%if not request.session.user_email %}
       <div class="ms-auto" id="divLogin">
-        <a class="btn btn-outline" id="botonLogin" href="#">
+        <a class="btn btn-outline" id="botonLogin" href="{% url 'login'%}">
           Login
         </a>
       </div>
+{%else%}
+            <div class="ms-auto" id="divLogin">
+        <a class="btn btn-outline" id="botonLogin" href="{%url 'logout'%}">
+          Logout
+        </a>
+      </div>
+{%endif%}      
     </div>
   </div>
 </nav>

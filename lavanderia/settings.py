@@ -2,6 +2,9 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 from mongoengine import connect
+from cryptography.fernet import Fernet
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -13,6 +16,9 @@ load_dotenv(BASE_DIR / '.env')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
 
+#Cifrado de Fernet
+FERNET_KEY = os.environ.get("FERNET_KEY").encode()
+cipher = Fernet(FERNET_KEY)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 

@@ -10,4 +10,5 @@ urlpatterns = [
     path('contactanos', landingViews.contact, name="contact"),
     path('login', usuariosViews.loginView, name='login'),
     path('register', usuariosViews.registerView, name='register'),
+    path('logout', usuariosViews.logoutView, name='logout'),
 ]
