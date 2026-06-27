@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %} Login {% endblock %}
+{% load static %}
+{% block css_extra %} 
+    <link rel="stylesheet" href="{% static 'css/login.css' %}?v=1">
+{% endblock %}
+{% block content %} 
+{%if error%}
+ <div class="alert alert-warning alert-dismissible fade show" role="alert" bis_skin_checked="1">
+  <strong>Error!</strong> {{error}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+<div id="divFormulario">
+ <h3 id="titulo"> Bienvenido a Lavanderia Flores</h3>
+
+ <p id="instrucciones">
+    Ingrese su correo electrónico.
+</p>
+
+</br>
+
+<form method="POST" id="formCorreo">
+  {% csrf_token %}
+
+  <label for="correo">Correo:</label></br>
+  <input type="email" id="correo" name="correo"></br>
+
+  <input type="submit" value="Enviar codigo" id="submitBoton">
+</form>
+
+<div id="codigoContainer" style="display:none;">
+  <p id="instrucciones2">Ingresa el código de 6 dígitos</p>
+
+  <div id="inputsCodigo">
+    <input maxlength="1" class="code-box">
+    <input maxlength="1" class="code-box">
+    <input maxlength="1" class="code-box">
+    <input maxlength="1" class="code-box">
+    <input maxlength="1" class="code-box">
+    <input maxlength="1" class="code-box">
+  </div>
+
+  <button id="verificarCodigo">Verificar</button>
+</div>
+<p id="parrafoRegistro">
+    ¿Sin cuenta aún? Registrate <a href="{%url 'register' %}">aquí.</a>    
+</p>
+<img src="{% static 'IMG/logoLavanderia.png'%}" id="logo">
+</div>
+<script src="{% static 'JS/recuperar.js'%}"></script>
+{% endblock %}

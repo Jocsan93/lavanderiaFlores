@@ -62,9 +62,56 @@ input{
     margin-top: 2%;
     margin-left: 1%;
     width: 98%;
-    height: 25vh;
+    height: 20vh;
 }
 
 #parrafoRegistro{
     margin-left: 50%;
+}
+
+#parrafoOlvidaste{
+    margin-left: 35%;
+}
+
+#inputsCodigo {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* cada cajita */
+.code-box {
+    width: 45px;
+    height: 55px;
+    font-size: 24px;
+    text-align: center;
+
+    border: 2px solid #ced4da;
+    border-radius: 8px;
+
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+
+/* efecto cuando se selecciona */
+.code-box:focus {
+    border-color: #0d6efd; /* bootstrap primary */
+    box-shadow: 0 0 6px rgba(13, 110, 253, 0.4);
+    transform: scale(1.05);
+}
+
+/* opcional: evitar scroll feo en móviles */
+.code-box::-webkit-outer-spin-button,
+.code-box::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#verificarCodigo{
+    margin-left:40%;
+}
+
+#instrucciones2{
+    margin-left: 5px;
 }
