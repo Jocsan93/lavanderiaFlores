@@ -5,6 +5,8 @@ import secrets
 from django.http import JsonResponse
 from django.utils import timezone
 import time
+from django.core.mail import EmailMultiAlternatives, get_connection
+from django.conf import settings
 
 # Create your views here.
 #vista de login
@@ -49,26 +51,113 @@ def logoutView(request):
     return redirect("login")    
 
 def recuperarPass(request):
-    if request.method=="POST":
-        correo = request.POST.get("correo")
-        #Verificar si correo ya está registrado
-        if Usuario.objects(correo=correo).first():
-            #Manda correo
-            codigo = ''.join(secrets.choice(string.digits) for _ in range(6))
-            
-            # guardar y borrar codigos anteriores
+    if request.method == "POST":
+        correo = request.POST.get("correo", "").strip()
+
+        # Verificar usuario
+        user = Usuario.objects(correo=correo).first()
+
+        if user:
+
+            # borrar códigos anteriores
             PasswordResetCode.objects(correo=correo).delete()
+
+            # generar código
+            codigo = ''.join(secrets.choice(string.digits) for _ in range(6))
 
             reset = PasswordResetCode(correo=correo)
             reset.set_codigo(codigo)
             reset.save()
 
-            print("CODIGO:", codigo)
+            # sesión (opcional pero útil)
+            request.session["reset_email"] = correo
+
+            # conexión SMTP explícita (como tu ejemplo)
+            connection = get_connection(
+                host=settings.EMAIL_HOST,
+                port=settings.EMAIL_PORT,
+                username=settings.EMAIL_HOST_USER,
+                password=settings.EMAIL_HOST_PASSWORD,
+                use_tls=settings.EMAIL_USE_TLS,
+                fail_silently=False,
+                local_hostname="uth.hn"
+            )
+
+            # HTML del correo (mejorado estilo cajas por dígito)
+            cajas = "".join([
+                f"""
+                <span style="
+                    display:inline-block;
+                    width:55px;
+                    height:70px;
+                    line-height:70px;
+                    margin:4px;
+                    background:#eef2f7;
+                    border:2px solid #2c3e50;
+                    border-radius:8px;
+                    font-size:36px;
+                    font-weight:bold;
+                    color:#2c3e50;
+                    text-align:center;
+                ">
+                    {d}
+                </span>
+                """
+                for d in codigo
+            ])
+
+            html_content = f"""
+            <div style="font-family: Arial, sans-serif; background-color:#f4f6f8; padding:30px;">
+                <div style="
+                    max-width:500px;
+                    margin:auto;
+                    background:white;
+                    padding:30px;
+                    border-radius:10px;
+                    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+                    text-align:center;
+                ">
+
+                    <h2 style="color:#333;">Recuperación de contraseña</h2>
+
+                    <p style="color:#555;">
+                        Hemos recibido una solicitud para restablecer tu contraseña.
+                    </p>
+
+                    <div style="margin:30px 0;">
+                        {cajas}
+                    </div>
+
+                    <p style="color:#666; font-size:14px;">
+                        Si no fuiste tú, puedes ignorar este mensaje.
+                    </p>
+
+                    <hr style="margin:25px 0; border:none; border-top:1px solid #eee;">
+
+                    <p style="font-size:12px; color:#999;">
+                        Este es un mensaje automático, no respondas a este correo.
+                    </p>
+
+                </div>
+            </div>
+            """
+
+            email = EmailMultiAlternatives(
+                subject="Recuperación de contraseña",
+                body=f"Tu código es: {codigo}",
+                from_email=settings.EMAIL_HOST_USER,
+                to=[correo],
+                connection=connection
+            )
+
+            email.attach_alternative(html_content, "text/html")
+            email.send()
+
             return JsonResponse({"ok": True})
-        else:     
-            return JsonResponse({"ok": False, "error": "Usuario no encontrado"})
-    else:
-        return render(request, 'usuarios/recuperarPass.html', {})
+
+        return JsonResponse({"ok": False})
+
+    return render(request, "usuarios/recuperarPass.html", {})
     
 def verificar_codigo(request):
     if request.method == "POST":
